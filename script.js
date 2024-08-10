@@ -1,10 +1,19 @@
 const container = document.getElementById("container");
 
-for (let i = 0; i < 256; i++) {
-  const singleBox = document.createElement("div");
-  singleBox.classList.add("inner-box", "box" + (i + 1));
-  singleBox.addEventListener("mouseover", (event) => {
-    singleBox.style.backgroundColor = "red";
-  });
-  container.appendChild(singleBox);
-}
+function getGridSize(userInput = 16) {
+  const numberOfSquares = userInput * userInput;
+  for (let i = 0; i < numberOfSquares; i++) {
+    const singleSquare = document.createElement("div");
+    singleSquare.classList.add("inner-box", "box" + (i + 1));
+    singleSquare.addEventListener("mouseover", () => {
+      coloring(singleSquare);
+    });
+    container.appendChild(singleSquare);
+  }
+};
+
+function coloring(listener) {
+  listener.style.backgroundColor = "red";
+};
+
+getGridSize();
