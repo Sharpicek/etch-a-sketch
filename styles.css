@@ -8,8 +8,18 @@
 h1 {
     text-align: center;
     font-size: 46px;
-    margin-top: 1em;
+    margin: 1em;
+
 }
+
+.main {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* ----- User Interface ----- */
+
 
 /* ----- Sketch Boxes Grid ----- */
 
@@ -17,11 +27,16 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     width: 980px;
-    height: 980px;
-    margin: 30px auto;
+    max-width: 980px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
 }
 
 #container, .inner-box {
     border: 1px solid black;
+}
+
+.inner-box {
+    flex: 1;
 }
 
