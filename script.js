@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const setSizeButton = document.getElementById("set-size");
+
 let previousGridSize = 0;
 
 setSizeButton.onclick = () => {
@@ -31,7 +32,9 @@ function getGridSize(squaresInput = 16) {
 }
 
 function coloring(listener) {
-  if (listener.style.backgroundColor !== "") {
+  let recoloringCheckbox = document.getElementById("recoloring").checked;
+  console.log(recoloringCheckbox);
+  if (listener.style.backgroundColor !== "" && !recoloringCheckbox) {
     return;
   }
   let randomRed = Math.floor(Math.random() * 255);
