@@ -10,16 +10,15 @@
   <body>
     <h1>Etch a Sketch</h1>
     <div class="main">
-      <section class="user-interface">
-        <label for="grid-size"
+      <fieldset class="user-interface">
+        <label for="grid-size" class="inputs"
           >Grid size<input name="grid-size" type="number" id="grid-size"
-        /></label>
-        <button type="submit" class="set-size" id="set-size">Set size</button>
-        <label for="recoloring"
-          >Recoloring toggle
+        /><button type="submit" class="set-size" id="set-size">Reset grid</button></label>
+        <label for="recoloring" class="inputs checkbox-cont"
+          ><span>Recoloring toggle</span>
           <input name="recoloring" type="checkbox" id="recoloring" checked
         /></label>
-      </section>
+      </fieldset>
       <section id="container"></section>
     </div>
   </body>
