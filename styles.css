@@ -16,8 +16,8 @@ h1 {
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    height: 800px;
+    width: 980px;
+    height: 980px;
     margin: 30px auto;
 }
 
@@ -25,6 +25,3 @@ h1 {
     border: 1px solid black;
 }
 
-.inner-box {
-    flex: 0 0 6.25%;
-}
