@@ -1,21 +1,24 @@
 const container = document.getElementById("container");
-const setSizeButton = document.getElementById("set-size");
-
+const setSizeButton = document.getElementById("set-size")
 let previousGridSize = 0;
 
 setSizeButton.onclick = () => {
   const setSizeValue = document.getElementById("grid-size").value;
   getGridSize(setSizeValue);
-  console.log(setSizeValue);
 };
+
+const resetGridByPressingEnter = document.getElementById("grid-size").onkeydown = (event) => {
+  if (event.key === "Enter") {
+    getGridSize(document.getElementById("grid-size").value);
+  }
+};
+
 
 function getGridSize(squaresInput = 16) {
   if (parseInt(squaresInput) === NaN || squaresInput <= 0) {
     squaresInput = 16;
-    alert("Wrong size! I'll set the grid for you to 16x16");
   } else if (squaresInput > 100) {
     squaresInput = 100;
-    alert("Value is too big! I'll set the grid for you to maximum size (100x100).");
   }
   const numberOfSquares = squaresInput * squaresInput;
 
