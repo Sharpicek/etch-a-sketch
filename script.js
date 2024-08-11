@@ -3,9 +3,9 @@ const setSizeButton = document.getElementById("set-size");
 let previousGridSize = 0;
 
 setSizeButton.onclick = () => {
-    const setSizeValue = document.getElementById("grid-size").value;
-    getGridSize(setSizeValue);
-    console.log(setSizeValue);
+  const setSizeValue = document.getElementById("grid-size").value;
+  getGridSize(setSizeValue);
+  console.log(setSizeValue);
 };
 
 function getGridSize(squaresInput = 16) {
@@ -31,6 +31,12 @@ function getGridSize(squaresInput = 16) {
 }
 
 function coloring(listener) {
-  listener.style.backgroundColor = "red";
+  if (listener.style.backgroundColor !== "") {
+    return;
+  }
+  let randomRed = Math.floor(Math.random() * 255);
+  let randomGreen = Math.floor(Math.random() * 255);
+  let randomBlue = Math.floor(Math.random() * 255);
+  listener.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 getGridSize();
