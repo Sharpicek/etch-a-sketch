@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const setSizeButton = document.getElementById("set-size");
+let shadesOfGrayArray = [];
 let previousGridSize = 0;
 let rainbowCounter = 0;
 
@@ -27,12 +28,14 @@ function getGridSize(squaresInput = 16) {
   for (let i = 0; i < previousGridSize; i++) {
     const singleSquare = document.querySelector(".inner-box");
     container.removeChild(singleSquare);
+    shadesOfGrayArray.pop();
   }
 
   previousGridSize = numberOfSquares;
   const flexBasisPercent = 100 / squaresInput;
 
   for (let i = 0; i < numberOfSquares; i++) {
+    shadesOfGrayArray.push(0.1);
     const singleSquare = document.createElement("div");
     singleSquare.setAttribute("style", `flex-basis: ${flexBasisPercent}%`);
     singleSquare.classList.add("inner-box", "box" + (i + 1));
@@ -54,8 +57,7 @@ function coloring(listener) {
       listener.style.backgroundColor = "orange";
       break;
     case 2:
-      listener.style.backgroundColor = "grey";
-      listener.classList.add = "grey";
+      fiftyShadesOfGray(listener);
       break;
     case 3:
       let randomRed = Math.floor(Math.random() * 255);
@@ -69,5 +71,14 @@ function coloring(listener) {
       rainbowCounter == 6 ? rainbowCounter = 0 : rainbowCounter++;
       break;
   }
+}
+
+function fiftyShadesOfGray(listener) {
+  const arrayIndex = listener.classList.value.slice(13) - 1;
+  let alpha = shadesOfGrayArray[arrayIndex]; 
+  listener.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
+  alpha = alpha + 0.1;
+  shadesOfGrayArray.splice(arrayIndex, 1, alpha);
+  console.log(alpha);
 }
 getGridSize();
