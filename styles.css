@@ -36,6 +36,11 @@ h1 {
     margin-left: 20px;
 }
 
+#grid-size {
+    width: 5rem;
+    text-align: right;
+}
+
 .checkbox-cont {
     display: flex;
     align-items: center;
