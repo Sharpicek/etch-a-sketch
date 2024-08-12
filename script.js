@@ -78,7 +78,6 @@ function fiftyShadesOfGray(listener) {
   let alpha = shadesOfGrayArray[arrayIndex]; 
   listener.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
   alpha = alpha + 0.1;
-  shadesOfGrayArray.splice(arrayIndex, 1, alpha);
-  console.log(alpha);
+  if (alpha <= 1) shadesOfGrayArray.splice(arrayIndex, 1, alpha);
 }
 getGridSize();
