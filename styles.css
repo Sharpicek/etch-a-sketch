@@ -69,5 +69,6 @@ input[type=checkbox] {
 
 .inner-box {
     flex: 1;
+    transition-duration: 0.2s;
 }
 
