@@ -38,7 +38,8 @@ function getGridSize(squaresInput = 16) {
     shadesOfGrayArray.push(0.1);
     const singleSquare = document.createElement("div");
     singleSquare.setAttribute("style", `flex-basis: ${flexBasisPercent}%`);
-    singleSquare.classList.add("inner-box", "box" + (i + 1));
+    singleSquare.classList.add("inner-box");
+    singleSquare.setAttribute("id", `${i + 1}`)
     singleSquare.addEventListener("mouseover", () => {
       coloring(singleSquare);
     });
@@ -51,6 +52,10 @@ function coloring(listener) {
   if ((listener.style.backgroundColor !== "") && !recoloringCheckbox) {
     return;
   }
+  /*if (listener.classList.value.slice(-4) == "grey" && !recoloringCheckbox) {
+    listener.classList.remove("grey");
+  }*/
+  console.log(listener.classList.value.slice(-4)); 
   let colorScheme = document.getElementById("color-scheme").value;
   switch (parseInt(colorScheme)) {
     case 1:
@@ -74,8 +79,9 @@ function coloring(listener) {
 }
 
 function fiftyShadesOfGray(listener) {
-  const arrayIndex = listener.classList.value.slice(13) - 1;
-  let alpha = shadesOfGrayArray[arrayIndex]; 
+  const arrayIndex = listener.getAttribute("id");
+  let alpha = shadesOfGrayArray[arrayIndex];
+  listener.classList.add("grey"); 
   listener.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
   alpha = alpha + 0.1;
   if (alpha <= 1) shadesOfGrayArray.splice(arrayIndex, 1, alpha);
