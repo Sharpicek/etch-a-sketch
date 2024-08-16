@@ -54,6 +54,11 @@ function coloring(listener) {
   if (listener.style.backgroundColor !== "" && !recoloringCheckbox && (!isGrey || colorScheme !== "2")) {
     return;
   }
+  if (colorScheme !== "2") {
+    const arrayIndex = listener.getAttribute("id");
+    shadesOfGrayArray.splice(arrayIndex, 1, 0.1);
+
+  }
   switch (parseInt(colorScheme)) {
     case 1:
       getOrange(listener);
