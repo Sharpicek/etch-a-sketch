@@ -48,9 +48,10 @@ function getGridSize(squaresInput = 16) {
 }
 
 function coloring(listener) {
-  let recoloringCheckbox = document.getElementById("recoloring").checked;
-  let colorScheme = document.getElementById("color-scheme").value;
-  if (listener.style.backgroundColor !== "" && !recoloringCheckbox) {
+  const recoloringCheckbox = document.getElementById("recoloring").checked;
+  const colorScheme = document.getElementById("color-scheme").value;
+  const isGrey = listener.classList.value.slice(-4) == "grey" ? true : false;
+  if (listener.style.backgroundColor !== "" && !recoloringCheckbox && (!isGrey || colorScheme !== "2")) {
     return;
   }
   switch (parseInt(colorScheme)) {
@@ -70,11 +71,13 @@ function coloring(listener) {
 }
 
 function getOrange(listener) {
+  listener.classList.remove("grey");
   listener.style.backgroundColor = "orange";
 }
 
 function getFiftyShadesOfGray(listener) {
   const arrayIndex = listener.getAttribute("id");
+  listener.classList.add("grey");
   let alpha = shadesOfGrayArray[arrayIndex]; 
   listener.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
   alpha = alpha + 0.1;
@@ -85,12 +88,15 @@ function getRandomColor(listener) {
   let randomRed = Math.floor(Math.random() * 255);
   let randomGreen = Math.floor(Math.random() * 255);
   let randomBlue = Math.floor(Math.random() * 255);
+  listener.classList.remove("grey");
   listener.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 
 function getRainbow(listener) {
   const rainbow = ["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D"];
+  listener.classList.remove("grey");
   listener.style.backgroundColor = rainbow[rainbowCounter];
   rainbowCounter == 6 ? rainbowCounter = 0 : rainbowCounter++;
 }
+
 getGridSize();
