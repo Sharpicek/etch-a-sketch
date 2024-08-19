@@ -1,5 +1,6 @@
 # Etch a Sketch
 This project was part of [The Odin Project Foundation Course](https://www.theodinproject.com/paths/foundations/courses/foundations).
+Live version [here](https://sharpicek.github.io/etch-a-sketch/)!
 
 ## Grid size
 - You can set custom grid size (defaults to 16x16).
