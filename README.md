@@ -1,7 +1,8 @@
 # Etch a Sketch
 This project was part of [The Odin Project Foundation Course](https://www.theodinproject.com/paths/foundations/courses/foundations).
 
-You can check the live project [here](https://sharpicek.github.io/etch-a-sketch/)!.
+Live version [here](https://sharpicek.github.io/etch-a-sketch/)!
+>>>>>>> 4b1d94d43ded68fad21d1042fd82675db932d80b
 
 ## Grid size
 - You can set custom grid size (defaults to 16x16).
@@ -26,8 +27,8 @@ You can check the live project [here](https://sharpicek.github.io/etch-a-sketch/
 This feature allows recoloring of already colored boxes if checked. If unchecked, it wont recolor already colored squares.
 
 ## Known bugs
-1) Unchecked recoloring for Fifty shades of gray doesn't darken the squares.
-2) Checked recoloring for Fifty shades of gray: When you color some square with fifty shades of gray, it remembers the last gray color even if you recolor it with different scheme. Meaning that it will start, if you recolor it again, where it lastly was. You have to reset the grid for completely starting over.
+1) ~~Unchecked recoloring for Fifty shades of gray doesn't darken the squares.~~ Fixed!   
+2) ~~Checked recoloring for Fifty shades of gray: When you color some square with fifty shades of gray, it remembers the last gray color even if you recolor it with different scheme. Meaning that it will start, if you recolor it again, where it lastly was. You have to reset the grid for completely starting over.~~ Fixed!
 
 ## The Odin Projects
 Here is the list of all my projects I did at [The Odin Project](https://www.theodinproject.com/) curriculum in order in which they were done.

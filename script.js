@@ -36,7 +36,8 @@ function getGridSize(squaresInput = 16) {
     shadesOfGrayArray.push(0.1);
     const singleSquare = document.createElement("div");
     singleSquare.setAttribute("style", `flex-basis: ${flexBasisPercent}%`);
-    singleSquare.classList.add("inner-box", "box" + (i + 1));
+    singleSquare.classList.add("inner-box");
+    singleSquare.setAttribute("id", `${i + 1}`);
     singleSquare.addEventListener("mouseover", () => {
       coloring(singleSquare);
     });
@@ -45,37 +46,60 @@ function getGridSize(squaresInput = 16) {
 }
 
 function coloring(listener) {
-  let recoloringCheckbox = document.getElementById("recoloring").checked;
-  if ((listener.style.backgroundColor !== "") && !recoloringCheckbox) {
+  const recoloringCheckbox = document.getElementById("recoloring").checked;
+  const colorScheme = document.getElementById("color-scheme").value;
+  const isGrey = listener.classList.value.slice(-4) == "grey" ? true : false;
+  if (listener.style.backgroundColor !== "" && !recoloringCheckbox && (!isGrey || colorScheme !== "2")) {
     return;
   }
-  let colorScheme = document.getElementById("color-scheme").value;
+  if (colorScheme !== "2") {
+    const arrayIndex = listener.getAttribute("id");
+    shadesOfGrayArray.splice(arrayIndex, 1, 0.1);
+
+  }
   switch (parseInt(colorScheme)) {
     case 1:
-      listener.style.backgroundColor = "orange";
+      getOrange(listener);
       break;
     case 2:
-      fiftyShadesOfGray(listener);
+      getFiftyShadesOfGray(listener);
       break;
     case 3:
-      let randomRed = Math.floor(Math.random() * 255);
-      let randomGreen = Math.floor(Math.random() * 255);
-      let randomBlue = Math.floor(Math.random() * 255);
-      listener.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+      getRandomColor(listener);
       break;
     case 4:
-      const rainbow = ["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D"];
-      listener.style.backgroundColor = rainbow[rainbowCounter];
-      rainbowCounter == 6 ? rainbowCounter = 0 : rainbowCounter++;
+      getRainbow(listener);
       break;
   }
 }
 
-function fiftyShadesOfGray(listener) {
-  const arrayIndex = listener.classList.value.slice(13) - 1;
+function getOrange(listener) {
+  listener.classList.remove("grey");
+  listener.style.backgroundColor = "orange";
+}
+
+function getFiftyShadesOfGray(listener) {
+  const arrayIndex = listener.getAttribute("id");
+  listener.classList.add("grey");
   let alpha = shadesOfGrayArray[arrayIndex]; 
   listener.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
   alpha = alpha + 0.1;
   if (alpha <= 1) shadesOfGrayArray.splice(arrayIndex, 1, alpha);
 }
+
+function getRandomColor(listener) {
+  let randomRed = Math.floor(Math.random() * 255);
+  let randomGreen = Math.floor(Math.random() * 255);
+  let randomBlue = Math.floor(Math.random() * 255);
+  listener.classList.remove("grey");
+  listener.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+}
+
+function getRainbow(listener) {
+  const rainbow = ["#E81416", "#FFA500", "#FAEB36", "#79C314", "#487DE7", "#4B369D", "#70369D"];
+  listener.classList.remove("grey");
+  listener.style.backgroundColor = rainbow[rainbowCounter];
+  rainbowCounter == 6 ? rainbowCounter = 0 : rainbowCounter++;
+}
+
 getGridSize();
