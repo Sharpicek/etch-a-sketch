@@ -9,9 +9,7 @@ setSizeButton.onclick = () => {
   getGridSize(setSizeValue);
 };
 
-const resetGridByPressingEnter = (document.getElementById(
-  "grid-size"
-).onkeydown = (event) => {
+const resetGridByPressingEnter = (document.getElementById("grid-size").onkeydown = (event) => {
   if (event.key === "Enter") {
     getGridSize(document.getElementById("grid-size").value);
   }
