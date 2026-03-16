@@ -1,3 +1,6 @@
+# ARCHIVED
+I decided to delete and archived a lot of repos as a part of my GitHub cleanup. 
+
 # Etch a Sketch
 This project was part of [The Odin Project Foundation Course](https://www.theodinproject.com/paths/foundations/courses/foundations).
 
@@ -32,14 +35,6 @@ This feature allows recoloring of already colored boxes if checked. If unchecked
 ## The Odin Projects
 Here is the list of all my projects I did at [The Odin Project](https://www.theodinproject.com/) curriculum in order in which they were done.
 ### Foundations Course
-#### Odin Recipes
-- [Assigment](https://www.theodinproject.com/lessons/foundations-recipes)
-- [GitHub repository](https://github.com/Sharpicek/odin-recipes)
-- [Live preview](https://sharpicek.github.io/odin-recipes/)
-#### Landing Page
-- [Assigment](https://www.theodinproject.com/lessons/foundations-landing-page)
-- [GitHub repository](https://github.com/Sharpicek/landing-page)
-- [Live preview](https://sharpicek.github.io/landing-page/)
 #### Rock Paper Scissors
 - [Assigment](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors)
 - [GitHub repository](https://github.com/Sharpicek/rock-paper-scissors)
@@ -54,10 +49,6 @@ Here is the list of all my projects I did at [The Odin Project](https://www.theo
 - [Live preview](https://sharpicek.github.io/calculator/)
 ### Intermediate HTML and CSS Course
 Part of the Node.js path curriculum.
-#### Sign-up Form
-- [Assigment](https://github.com/Sharpicek/sign-up-form)
-- [GitHub repository](https://github.com/Sharpicek/sign-up-form)
-- [Live preview](https://sharpicek.github.io/sign-up-form/)
 #### Admin Dashboard
 - [Assigment](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form)
 - [GitHub repository](https://github.com/Sharpicek/admin-dashboard)
